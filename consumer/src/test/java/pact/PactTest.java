@@ -15,7 +15,11 @@ import static org.hamcrest.Matchers.nullValue;
 
 public class PactTest extends ConsumerPactTest {
 
+    @Rule
+    public PactProviderRule mockProvider = new PactProviderRule("test_provider", "localhost", 1234, this);
+
     String v3Path = "/v3/searches/37ca5b7c-2f31-530c-9d08-bc334cb434fd";
+
     @Override
     protected PactFragment createFragment(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<String, String>();
@@ -31,6 +35,12 @@ public class PactTest extends ConsumerPactTest {
                 .body(jsonBody)
                 .toFragment();
         return fragment;
+    }
+
+    @Override
+    protected PactFragment createFragment2(PactDslWithProvider builder) {
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-Type", "application/json");
     }
 
     @Override
