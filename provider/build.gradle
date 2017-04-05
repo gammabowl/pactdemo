@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'au.com.dius.pact'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("au.com.dius:pact-jvm-provider-gradle_2.10:2.2.1")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile("junit:junit")
+    testCompile("au.com.dius:pact-jvm-provider_2.10:2.2.1")
+}
+
+pact {
+    serviceProviders {
+        dummyProvider {
+            protocol ='http'
+            host = 'api.apps.company.com'
+            port = 80
+            hasPactWith("dummy-consumer") {
+                pactFile = file("../pacts/test_consumer-test_provider.json")
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}

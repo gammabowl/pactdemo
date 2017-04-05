@@ -1,0 +1,36 @@
+{
+    "provider": {
+        "name": "test_provider"
+    },
+    "consumer": {
+        "name": "test_consumer"
+    },
+    "interactions": [
+        {
+            "description": "API v3 endpoint response",
+            "request": {
+                "method": "GET",
+                "path": "/v3/searches/37ca5b7c-2f31-530c-9d08-bc334cb434fd"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "active": true,
+                    "created": "2013-12-17T03:14:33.611223",
+                    "name": "test"
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.0-beta.2"
+        }
+    }
+}
