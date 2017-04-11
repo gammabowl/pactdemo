@@ -1,4 +1,3 @@
-//from https://github.com/DiUS/pact-jvm/tree/master/pact-jvm-consumer-junit/src/test/java/au/com/dius/pact/consumer/exampleclients
 package pact;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
