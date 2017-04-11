@@ -45,13 +45,6 @@ public class PactDslJsonTest extends ConsumerPactTest {
                 .status(200)
                 .headers(headers)
                 .body(body)
-                .uponReceiving("API v3 endpoint response")
-                .path("/v2")
-                .method("GET")
-                .willRespondWith()
-                .status(200)
-                .headers(headers)
-                .body("hello world")
                 .toFragment();
         return fragment;
     }
