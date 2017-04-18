@@ -25,11 +25,31 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
     @Rule
     public PactProviderRule mockProvider = new PactProviderRule("test_provider", "localhost", 1234, this);
 
-    String v3Path = "/";
+    String v3Path = "/v3";
             DslPart body = new PactDslJsonBody()
+                    .object("meta")
+                        .integerType("Count")
+                        .eachLike("base")
+                            .id()
+                            .stringType("url")
+                            .closeObject()
+                        .closeArray()
+                        .eachLike("stats")
+                            .integerType("avg")
+                            .integerType("Comments")
+                            .integerType("daily")
+                            .integerType("views")
+                            .integerType("Dislikes")
+                            .integerType("Likes")
+                            .integerType("Views")
+                            .integerType("totalC")
+                            .integerType("totalV")
+                            .closeObject()
+                        .closeArray()
+                    .closeObject()
                     .object("result")
                         .eachLike("packages")
-                            .booleanType("Instore")
+                            .booleanType("availableInStore")
                             .booleanType("custom")
                             .stringType("description")
                             .id()
@@ -42,18 +62,18 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
                                 .closeObject()
                             .closeArray()
                             .eachLike("stats")
-                                .integerType("avg")
-                                .integerType("Comments")
-                                .integerType("Impressions")
-                                .integerType("Views")
-                                .integerType("likes")
+                                .integerType("averageDuration")
+                                .integerType("sumComments")
+                                .integerType("sumDailyForecastedImpressions")
+                                .integerType("sumDailyForecastedViews")
+                                .integerType("sumDislikes")
                                 .integerType("sumLikes")
                                 .integerType("sumViews")
-                                .integerType("totalC")
-                                .integerType("totalV")
+                                .integerType("totalChannels")
+                                .integerType("totalVideos")
                                 .closeObject()
                             .closeArray()
-                            .eachLike("omi")
+                            .eachLike("omissions")
                                 .closeObject()
                             .closeArray()
                             .eachLike("children")
@@ -97,5 +117,20 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
         catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        /*try {
+            actualResponse = new ConsumerClient(url).getAsMap(v3Path, "");
+            Map expectedResponse = new HashMap();
+            expectedResponse.put("dbQueryTime", 0.003489971160888672);
+            expectedResponse.put("redisQueryTime", 0.0006480216979980469);
+            expectedResponse.put("status", "api is up.");
+            expectedResponse.put("totalTime", 0.005939006805419922);
+            logger.info(expectedResponse.toString());
+            logger.info(actualResponse.toString());
+            Assert.assertEquals(expectedResponse.toString(), actualResponse.toString());
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }*/
     }
 }
