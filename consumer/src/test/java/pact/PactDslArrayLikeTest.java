@@ -117,20 +117,5 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
         catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        /*try {
-            actualResponse = new ConsumerClient(url).getAsMap(v3Path, "");
-            Map expectedResponse = new HashMap();
-            expectedResponse.put("dbQueryTime", 0.003489971160888672);
-            expectedResponse.put("redisQueryTime", 0.0006480216979980469);
-            expectedResponse.put("status", "api is up.");
-            expectedResponse.put("totalTime", 0.005939006805419922);
-            logger.info(expectedResponse.toString());
-            logger.info(actualResponse.toString());
-            Assert.assertEquals(expectedResponse.toString(), actualResponse.toString());
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }*/
     }
 }
