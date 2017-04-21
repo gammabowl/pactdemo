@@ -24,7 +24,7 @@ public class PactDslNestedJsonTest extends ConsumerPactTest {
     Logger logger = Logger.getLogger(PactDslJsonTest.class.getName());
 
     @Rule
-    public PactProviderRule mockProvider = new PactProviderRule("test_provider", "localhost", 1234, this);
+    public PactProviderRule mockProvider = new PactProviderRule("test_provider-3", "localhost", 1234, this);
 
     private DslPart body = new PactDslJsonBody()
             .id()
@@ -62,12 +62,12 @@ public class PactDslNestedJsonTest extends ConsumerPactTest {
 
     @Override
     protected String providerName() {
-        return "test_provider";
+        return "test_provider-3";
     }
 
     @Override
     protected String consumerName() {
-        return "test_consumer";
+        return "test_consumer-3";
     }
 
     @Override
