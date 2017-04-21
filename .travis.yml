@@ -14,7 +14,11 @@ cache:
   directories:
   - $HOME/.gradle
 
+env:
+  - CONSUMER_DIR=consumer
+  - PROVIDER_DIR=provider
+
 script:
-  - ./consumer/gradlew clean
-  - ./consumer/gradlew test
-  - ./provider/gradlew clean
+  - cd $CONSUMER_DIR && ./gradlew clean
+  - cd $CONSUMER_DIR && ./gradlew test
+  - cd $PROVIDER_DIR && ./gradlew clean
