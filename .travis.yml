@@ -15,10 +15,8 @@ cache:
   - $HOME/.gradle
 
 env:
-  - CONSUMER_DIR=consumer
-  - PROVIDER_DIR=provider
+  - TEST_DIR=consumer
+  - TEST_DIR=provider
 
 script:
-  - cd $CONSUMER_DIR && ./gradlew clean
-  - cd $CONSUMER_DIR && ./gradlew test
-  - cd $PROVIDER_DIR && ./gradlew clean
+  - cd $TEST_DIR && ./gradlew clean && ./gradlew test
