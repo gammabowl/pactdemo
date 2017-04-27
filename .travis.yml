@@ -1,0 +1,22 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+env:
+  - TEST_DIR=consumer
+  - TEST_DIR=provider
+
+script:
+  - cd $TEST_DIR && ./gradlew clean && ./gradlew test

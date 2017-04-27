@@ -1,4 +1,6 @@
-# basic consumer driven testing
+[![Build Status](https://travis-ci.org/shashidesai/pactdemo.svg?branch=master)](https://travis-ci.org/shashidesai/pactdemo)
+
+# basic consumer driven testing 
 
 ### How to run
 #### Run Consumer tests 
