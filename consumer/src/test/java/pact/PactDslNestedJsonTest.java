@@ -1,4 +1,3 @@
-/*
 package pact;
 
 import java.util.logging.Level;
@@ -82,4 +81,3 @@ public class PactDslNestedJsonTest extends ConsumerPactTest {
         }
     }
 }
-*/
