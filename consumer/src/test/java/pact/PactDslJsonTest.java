@@ -69,8 +69,8 @@ public class PactDslJsonTest extends ConsumerPactTest {
             expectedResponse.put("redisQueryTime", 0.0006480216979980469);
             expectedResponse.put("status", "api is up.");
             expectedResponse.put("totalTime", 0.005939006805419922);
-            logger.info(expectedResponse.toString());
-            logger.info(actualResponse.toString());
+            //logger.info(expectedResponse.toString());
+            //logger.info(actualResponse.toString());
             Assert.assertEquals(expectedResponse.toString(), actualResponse.toString());
         } catch (Exception e) {
             throw new RuntimeException(e);

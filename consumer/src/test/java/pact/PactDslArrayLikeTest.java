@@ -76,7 +76,7 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
                             .eachLike("omissions")
                                 .closeObject()
                             .closeArray()
-                            .minArrayLike("children", 1)
+                            .eachLike("children")
                                 .integerType("id")
                                 .stringType("uri")
                                 .closeObject()
@@ -90,12 +90,13 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
 
         PactFragment fragment = builder
                 .uponReceiving("API v3 endpoint response")
-                .path("/")
-                .method("GET")
+                    .path("/")
+                    .method("GET")
+                    .query("omit=23&descendantDepth=1")
                 .willRespondWith()
-                .status(200)
-                .headers(headers)
-                .body(body)
+                    .status(200)
+                    .headers(headers)
+                    .body(body)
                 .toFragment();
         return fragment;
     }
@@ -114,7 +115,7 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
     protected void runTest(String url) {
         Map actualResponse;
         try {
-            actualResponse = new ConsumerClient(url).getAsMap("/", "");
+            actualResponse = new ConsumerClient(url).getAsMap("/", "omit=23&descendantDepth=1");
         }
         catch (Exception e) {
             throw new RuntimeException(e);
