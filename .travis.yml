@@ -19,5 +19,4 @@ env:
   - TEST_DIR=provider
 
 script:
-  - cd $TEST_DIR && gradle wrapper
-  - cd $TEST_DIR && ./gradlew clean && ./gradlew test
+  - cd $TEST_DIR && gradle wrapper && ./gradlew clean && ./gradlew test
