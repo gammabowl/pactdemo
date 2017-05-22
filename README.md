@@ -4,6 +4,9 @@
 
 ### Setup
 * `brew install gradle`
+* `cd consumer`
+* `gradle wrapper` 
+* `cd provider`
 * `gradle wrapper`
 
 ### How to run
