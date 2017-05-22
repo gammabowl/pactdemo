@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/shashidesai/pactdemo.svg?branch=master)](https://travis-ci.org/shashidesai/pactdemo)
+[![Build Status](https://travis-ci.org/shashidesai/pactdemo.svg?branch=master)](https://travis-ci.org/shashidesai/pactdemo)   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/405861391a36425db5bf409834476488)](https://www.codacy.com/app/shashidhar.desai/pactdemo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=shashidesai/pactdemo&amp;utm_campaign=Badge_Grade)
 
 # basic consumer driven testing 
 
