@@ -2,14 +2,18 @@
 
 # basic consumer driven testing 
 
+### Setup
+* `brew install gradle`
+* `gradle wrapper`
+
 ### How to run
 #### Run Consumer tests 
-* ./gradlew clean
-* ./gradlew test
+* `./gradlew clean`
+* `./gradlew test`
 * pact file gets generated at /pacts
 
 #### Run Provider
-* ./gradlew pactVerify
+* `./gradlew pactVerify`
 * interactions from pact file will be run against the actual api.
 using the config in /provider/build.gradle
 ```
