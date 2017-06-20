@@ -14,7 +14,7 @@ buildscript {
 
     dependencies {
         classpath("junit:junit:4.11")
-        classpath("au.com.dius:pact-jvm-consumer-junit_2.11:3.3.7")
+        classpath("au.com.dius:pact-jvm-consumer-junit_2.11:3.4.1")
         classpath("org._10ne.gradle:rest-gradle-plugin:0.4.2")
     }
 }
@@ -25,14 +25,9 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'joda-time', name: 'joda-time', version: '2.3'
-    testCompile group: 'org.apache.commons', name: 'commons-collections4', version: '4.0'
-    testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-junit_2.11', version: '3.3.7'
-    testCompile group: 'org.apache.httpcomponents', name:'fluent-hc', version: '4.5.2'
-    testCompile group: 'org.apache.httpcomponents', name:'httpclient', version: '4.5.2'
+    testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-junit_2.11', version: '3.4.1'
+    testCompile group: 'org.apache.httpcomponents', name:'fluent-hc', version: '4.5.3'
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
-    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.2'
-    testCompile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
 }
 
 test {
@@ -41,5 +36,5 @@ test {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+    gradleVersion = '3.5'
 }

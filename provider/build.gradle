@@ -1,38 +1,45 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'au.com.dius.pact'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("au.com.dius:pact-jvm-provider-gradle_2.10:2.4.18")
-    }
+plugins {
+  id "java"
+  id "au.com.dius.pact" version "3.4.1"
 }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile("junit:junit")
-    testCompile("au.com.dius:pact-jvm-provider_2.10:2.4.18")
+ext {
+    PACT_DIR = "../pacts"
+    PACT_BROKER_URL = "http://pactdemo.pact.dius.com.au"
+    AUTH_TOKEN = "Bearer " + System.getenv("AUTH_TOKEN")
 }
 
 pact {
+
     serviceProviders {
-        dummyProvider {
+        testprovider {
+            //hasPactsFromPactBroker(PACT_BROKER_URL)
             protocol ='http'
-            host = 'api.apps.company.com'
+            host = 'api.env.company.com'
             port = 80
-            hasPactWith("test_consumer") {
-                pactFile = file("../pacts/test_consumer-test_provider.json")
+            requestFilter = { req ->
+                // Add an authorization header to each request
+                req.addHeader('Authorization', AUTH_TOKEN)
+            }
+            hasPactWith("testconsumer") {
+                pactFile = file("../pacts/testconsumer-testprovider.json")
             }
         }
     }
+
+    publish {
+        pactDirectory = PACT_DIR
+        pactBrokerUrl = PACT_BROKER_URL
+        version = '0.1'
+    }
+
+    reports {
+      defaultReports()
+      markdown
+    }
+
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+    gradleVersion = '3.5'
 }
