@@ -15,24 +15,44 @@
 * `./gradlew test`
 * pact file gets generated at /pacts
 
+### How to publish
+* `./gradlew pactPublish`
+
 #### Run Provider
 * `./gradlew pactVerify`
 * interactions from pact file will be run against the actual api.
 using the config in /provider/build.gradle
+* Use `hasPactsFromPactBroker(PACT_BROKER_URL)` to verify using pact broker
+* Use `hasPactWith("testconsumer") {
+                pactFile = file("../pacts/testconsumer-testprovider.json")
+            }` to verify using local pact
 ```
 pact {
+
     serviceProviders {
-        dummyProvider {
+        testprovider {
+            //hasPactsFromPactBroker(PACT_BROKER_URL)
             protocol ='http'
-            host = 'api.apps.company.com'
+            host = 'api.env.company.com'
             port = 80
-            hasPactWith("test_consumer") {
-                pactFile = file("../pacts/test_consumer-test_provider.json")
+            requestFilter = { req ->
+                // Add an authorization header to each request
+                req.addHeader('Authorization', AUTH_TOKEN)
+            }
+            hasPactWith("testconsumer") {
+                pactFile = file("../pacts/testconsumer-testprovider.json")
             }
         }
     }
 }
+
 ```
+
+### Misc environment Issues
+* To avoid seeing "SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"
+Set one of the listed jars here - https://www.slf4j.org/codes.html#StaticLoggerBinder - in the CLASSPATH
+
+
 ### Reference Links
 * Pact.io: [https://docs.pact.io/](https://docs.pact.io/)
 * Pact 101: [http://dius.com.au/2016/02/03/microservices-pact/](http://dius.com.au/2016/02/03/microservices-pact/)
