@@ -6,7 +6,7 @@ plugins {
 ext {
     PACT_DIR = "../pacts"
     PACT_BROKER_URL = "http://pactdemo.pact.dius.com.au"
-    AUTH_TOKEN = "Bearer " + System.getenv("AUTH_TOKEN")
+    //AUTH_TOKEN = "Bearer " + System.getenv("AUTH_TOKEN")
 }
 
 pact {
@@ -19,7 +19,7 @@ pact {
             port = 80
             requestFilter = { req ->
                 // Add an authorization header to each request
-                req.addHeader('Authorization', AUTH_TOKEN)
+                req.addHeader('Authorization', "abcd1234")
             }
             hasPactWith("testconsumer") {
                 pactFile = file("../pacts/testconsumer-testprovider.json")

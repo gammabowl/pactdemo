@@ -51,7 +51,13 @@ pact {
 ### Misc environment Issues
 * To avoid seeing "SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"
 Set one of the listed jars here - https://www.slf4j.org/codes.html#StaticLoggerBinder - in the CLASSPATH
-
+* To see the deprecation details if you see this message `uses or overrides a deprecated API. Note: Recompile with -Xlint:deprecation for details.`
+Add this block of code to build.gradle file. 
+```
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
+}
+```
 
 ### Reference Links
 * Pact.io: [https://docs.pact.io/](https://docs.pact.io/)
