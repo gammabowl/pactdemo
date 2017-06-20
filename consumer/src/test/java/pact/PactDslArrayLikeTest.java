@@ -23,7 +23,7 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
     Logger logger = Logger.getLogger(PactDslArrayLikeTest.class.getName());
 
     @Rule
-    public PactProviderRule mockProvider = new PactProviderRule("test_provider-1", "localhost", 1234, this);
+    public PactProviderRule mockProvider = new PactProviderRule("testprovider", "localhost", 1234, this);
 
     String v3Path = "/v3";
             DslPart body = new PactDslJsonBody()
@@ -103,12 +103,12 @@ public class PactDslArrayLikeTest extends ConsumerPactTest {
 
     @Override
     protected String providerName() {
-        return "test_provider-1";
+        return "testprovider";
     }
 
     @Override
     protected String consumerName() {
-        return "test_consumer-1";
+        return "testconsumer";
     }
 
     @Override

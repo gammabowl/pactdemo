@@ -6,6 +6,10 @@ ext {
     PACT_DIR = "../pacts"
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
+}
+
 buildscript {
     repositories {
         mavenCentral()
