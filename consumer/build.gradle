@@ -18,7 +18,7 @@ buildscript {
 
     dependencies {
         classpath("junit:junit:4.11")
-        classpath("au.com.dius:pact-jvm-consumer-junit_2.11:3.4.1")
+        classpath("au.com.dius:pact-jvm-consumer-junit_2.11:3.5.0")
         classpath("org._10ne.gradle:rest-gradle-plugin:0.4.2")
     }
 }
@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-junit_2.11', version: '3.4.1'
+    testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-junit_2.11', version: '3.5.0'
     testCompile group: 'org.apache.httpcomponents', name:'fluent-hc', version: '4.5.3'
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
 }
