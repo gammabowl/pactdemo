@@ -1,6 +1,6 @@
 plugins {
   id "java"
-  id "au.com.dius.pact" version "3.4.1"
+  id "au.com.dius.pact" version "3.5.0"
 }
 
 ext {
@@ -19,7 +19,7 @@ pact {
             port = 80
             requestFilter = { req ->
                 // Add an authorization header to each request
-                req.addHeader('Authorization', "abcd1234")
+                req.addHeader('Authorization', "Bearer abcd1234")
             }
             hasPactWith("testconsumer") {
                 pactFile = file("../pacts/testconsumer-testprovider.json")
