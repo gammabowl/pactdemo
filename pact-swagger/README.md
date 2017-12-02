@@ -15,3 +15,6 @@
 #### Run Pact Swagger tests 
 * `./gradlew clean test`
 * Check the test validation report generated at `/build/reports/tests/test/index.html`
+
+### Reference Links
+* `Swagger Request Validator` - https://bitbucket.org/atlassian/swagger-request-validator
