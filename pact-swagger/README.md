@@ -2,7 +2,6 @@
 
 ### Setup
 * `brew install gradle`
-* `cd pact-swagger`
 * `gradle wrapper` 
 
 ### Requirements (These steps should be run before running pact-swagger tests)
