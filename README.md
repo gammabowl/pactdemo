@@ -5,7 +5,7 @@
 * Sample project using pact-jvm & swagger-request-validator libraries
 
 
-### PACT DEMO
+### How to run
 * cd `pact-tests` to run pact consumer and provider tests
 * cd `pact-swagger` to run swagger pact tests
 
@@ -23,7 +23,7 @@ tasks.withType(JavaCompile) {
 
 
 ### Reference Links
-* Pact.io: [https://docs.pact.io/](https://docs.pact.io/)
+* `Pact.io`: [https://docs.pact.io/](https://docs.pact.io/)
 * `Swagger Request Validator` - https://bitbucket.org/atlassian/swagger-request-validator
 * Pact 101: [http://dius.com.au/2016/02/03/microservices-pact/](http://dius.com.au/2016/02/03/microservices-pact/)
 * Pact - How does it work: [https://github.com/realestate-com-au/pact#how-does-it-work](https://github.com/realestate-com-au/pact#how-does-it-work)
