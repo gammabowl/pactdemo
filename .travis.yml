@@ -15,8 +15,8 @@ cache:
   - $HOME/.gradle
 
 env:
-  - TEST_DIR=consumer
-  - TEST_DIR=provider
+  - TEST_DIR=pact-tests/consumer
+  - TEST_DIR=pact-tests/provider
 
 script:
   - cd $TEST_DIR && gradle wrapper && ./gradlew clean && ./gradlew test
