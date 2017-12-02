@@ -1,52 +1,14 @@
 [![Build Status](https://travis-ci.org/shashidesai/pactdemo.svg?branch=master)](https://travis-ci.org/shashidesai/pactdemo)   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/405861391a36425db5bf409834476488)](https://www.codacy.com/app/shashidhar.desai/pactdemo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=shashidesai/pactdemo&amp;utm_campaign=Badge_Grade)
 
-# basic consumer driven testing 
 
-### Setup
-* `brew install gradle`
-* `cd consumer`
-* `gradle wrapper` 
-* `cd provider`
-* `gradle wrapper`
+### Consumer Driven Contract Testing - PACT.IO
+* Sample project using pact-jvm & swagger-request-validator libraries
 
-### How to run
-#### Run Consumer tests 
-* `./gradlew clean`
-* `./gradlew test`
-* pact file gets generated at /pacts
 
-### How to publish
-* `./gradlew pactPublish`
+### PACT DEMO
+* cd `pact-tests` to run pact consumer and provider tests
+* cd `pact-swagger` to run swagger pact tests
 
-#### Run Provider
-* `./gradlew pactVerify`
-* interactions from pact file will be run against the actual api.
-using the config in /provider/build.gradle
-* Use `hasPactsFromPactBroker(PACT_BROKER_URL)` to verify using pact broker
-* Use `hasPactWith("testconsumer") {
-                pactFile = file("../pacts/testconsumer-testprovider.json")
-            }` to verify using local pact
-```
-pact {
-
-    serviceProviders {
-        testprovider {
-            //hasPactsFromPactBroker(PACT_BROKER_URL)
-            protocol ='http'
-            host = 'api.env.company.com'
-            port = 80
-            requestFilter = { req ->
-                // Add an authorization header to each request
-                req.addHeader('Authorization', AUTH_TOKEN)
-            }
-            hasPactWith("testconsumer") {
-                pactFile = file("../pacts/testconsumer-testprovider.json")
-            }
-        }
-    }
-}
-
-```
 
 ### Misc environment Issues
 * To avoid seeing "SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"
@@ -59,8 +21,10 @@ tasks.withType(JavaCompile) {
 }
 ```
 
+
 ### Reference Links
 * Pact.io: [https://docs.pact.io/](https://docs.pact.io/)
+* `Swagger Request Validator` - https://bitbucket.org/atlassian/swagger-request-validator
 * Pact 101: [http://dius.com.au/2016/02/03/microservices-pact/](http://dius.com.au/2016/02/03/microservices-pact/)
 * Pact - How does it work: [https://github.com/realestate-com-au/pact#how-does-it-work](https://github.com/realestate-com-au/pact#how-does-it-work)
 * Pact - Best practices: [https://docs.pact.io/best_practices/](https://docs.pact.io/best_practices/) 
